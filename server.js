@@ -7,3 +7,5 @@ app.get('/', function(req, res){
   console.log('hello')
 })
 
+
+exports.module = app;
