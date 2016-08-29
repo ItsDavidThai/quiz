@@ -1,11 +1,18 @@
+require('babel-register')({
+    presets: ['react']
+})
 var express = require('express');
 var app = express();
+var React = require('react');
 
+// app.set('views', __dirname + '/views');
+app.set('view engine', 'ejs');
 
 app.get('/', function(req, res){
 
-  res.render('index')
+  console.log('request to root')
+  res.render('layout')
 })
 
 
-exports.module = app;
+module.exports = app;
