@@ -2,17 +2,23 @@ var React = require('react')
 var ReactBootstrap = require('react-bootstrap')
 var Jumbotron = ReactBootstrap.Jumbotron
 var Button = ReactBootstrap.Button
-var QuizBody = (props) =>{
-  return(
+class QuizBody extends React.Component {
+  constructor(props){
+    super(props)
 
+  }
 
-    <div>
-      {props.data.map( (element) => ( <QuizQuestion data={element} />) )}
-    </div>
-  )
-
-
+  render(){
+    return(
+      <div>
+        {this.props.data.map( (element) => ( <QuizQuestion data={element} />) )}
+      </div>
+    )
+  }
 }
+
+
+
 
 
 
