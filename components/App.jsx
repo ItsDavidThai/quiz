@@ -55,11 +55,14 @@ class Input extends React.Component {
       value : ""
     }
   }
-  addTaskToDB(task){
-
-    $.post( "add", function( data ) {
-      console.log(data)
-    });
+  addTaskToDB(e){
+    console.log(JSON.stringify({task:this.state.value}), '-------- somewhere')
+    var data = {task:this.state.value}
+    $.post( "add", data, function(){
+      console.log('post successful')
+    }).fail(function(err){console.log(err)},
+    {"Content-Type": "application/json"}
+    )
   }
   handleInputChange(e) {
     this.setState({
@@ -77,7 +80,7 @@ class Input extends React.Component {
 
         <div>
         <Button bsStyle='primary' onClick={this.handleSubmit.bind(this)}
-        onClick={this.addTaskToDB}
+        onClick={this.addTaskToDB.bind(this)}
         > Add</Button>
           <input
             className="form-control"
