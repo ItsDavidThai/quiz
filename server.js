@@ -11,19 +11,19 @@ var ReactDOM = require('react-dom')
 app.set('views', __dirname + '/views');
 app.set('view engine', 'ejs');
 app.get('/', function(req, res){
-  // var html = _.template(template, data);
-  console.log('request to root')
-  // console.log(html)
-  // var html = '<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/latest/css/bootstrap.min.css">'
-
-  // + ReactDOMServer.renderToString(<App data={[1,2,3,4]}/>)
-  // console.log(html)
-  // res.send(html)
-
   res.render('index')
-
 })
 
+app.post('/add', function(req, res){
+  res.writeHeader(200)
+  res.end()
+  console.log('this is connected')
+})
+app.get('/remove', function(req, res){
+  res.writeHeader(200)
+  res.end()
+  console.log('this is removing')
+})
 app.use(express.static(__dirname + '/'))
 
 

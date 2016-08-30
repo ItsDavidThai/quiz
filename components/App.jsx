@@ -55,6 +55,12 @@ class Input extends React.Component {
       value : ""
     }
   }
+  addTaskToDB(task){
+
+    $.post( "add", function( data ) {
+      console.log(data)
+    });
+  }
   handleInputChange(e) {
     this.setState({
       value: e.target.value
@@ -70,7 +76,9 @@ class Input extends React.Component {
     return(
 
         <div>
-        <Button bsStyle='primary' onClick={this.handleSubmit.bind(this)}> Add</Button>
+        <Button bsStyle='primary' onClick={this.handleSubmit.bind(this)}
+        onClick={this.addTaskToDB}
+        > Add</Button>
           <input
             className="form-control"
             type="text"
@@ -88,12 +96,20 @@ class Input extends React.Component {
 
 
 var QuizQuestion = (props) => {
+  var deleteFromDb = function(){
+    $.get( "remove", function( data ) {
+      console.log(data)
+    });
+  }
 
   return(
       <div>
       <Button onClick={function(e){
                 props.delete(props.data)
               }}
+              onClick={
+                deleteFromDb
+              }
       >{props.data}
       </Button>
       </div>
