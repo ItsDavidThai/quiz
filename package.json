@@ -1,14 +1,29 @@
 {
   "name": "bb",
   "version": "1.0.0",
-  "description": "",
+  "description": "hey",
   "main": "index.js",
-  "scripts": {
-    "start": "nodemon index.js"
-  },
   "author": "",
+  "private":"false",
+    "scripts": {
+        "start": "babel . --out-dir compiled --presets=es2015,react --ignore=node_modules,compiled --source-maps inline -w",
+
+      "test": "nodemon index.js"
+
+  },
   "license": "ISC",
+    "devDependencies": {
+    "babel-cli": "^6.14.0",
+    "babel-core": "^6.14.0",
+    "babel-loader": "^6.2.5",
+    "babel-polyfill": "^6.13.0",
+    "babel-preset-es2015": "^6.14.0",
+    "babel-preset-react": "^6.11.1",
+    "webpack": "^1.13.2",
+    "webpack-livereload-plugin": "^0.8.2"
+  },
   "dependencies": {
+    "babel-cli": "^6.6.5",
     "babel-preset-es2015": "^6.14.0",
     "babel-preset-react": "^6.11.1",
     "babel-register": "^6.14.0",
