@@ -22,9 +22,22 @@ class QuizBody extends React.Component {
       }
 
     })
-    // this.setState({
 
-    // })
+  }
+
+  fetchData(context){
+    console.log(context)
+      $.get( "fetch", function(data){
+      // console.log(data)
+      var taskData = [];
+      data.forEach((task) =>{ taskData.push({task:task.taskname})})
+      console.log(taskData)
+      this.setState({
+        tasks:taskData
+      })
+      return taskData
+    }.bind(this))
+
   }
 
   addTask(task){
@@ -37,6 +50,7 @@ class QuizBody extends React.Component {
   render(){
     return(
       <div>
+        <p><Button bsStyle="primary" onClick={this.fetchData.bind(this, this)}>Start</Button></p>
         <Input addtask={this.addTask.bind(this)}/>
         {this.state.tasks.map( (element) =>
         ( <QuizQuestion data={element.task}
@@ -79,8 +93,9 @@ class Input extends React.Component {
     return(
 
         <div>
-        <Button bsStyle='primary' onClick={this.handleSubmit.bind(this)}
-        onClick={this.addTaskToDB.bind(this)}
+        <Button bsStyle='primary'
+        // onClick={this.addTaskToDB.bind(this)}
+        onClick={this.handleSubmit.bind(this)}
         > Add</Button>
           <input
             className="form-control"
@@ -109,10 +124,8 @@ var QuizQuestion = (props) => {
       <div>
       <Button onClick={function(e){
                 props.delete(props.data)
-              }}
-              onClick={
                 deleteFromDb
-              }
+              }}
       >{props.data}
       </Button>
       </div>
@@ -124,13 +137,15 @@ class App extends React.Component {
     super(props)
   }
 
+
+
   render(){
     return(
         <div>
          <Jumbotron>
 
             <h1>To Do App</h1>
-            <p><Button bsStyle="primary" onClick={console.log('hello')}>Start</Button></p>
+
           <QuizBody data={this.props.data}/>
           </Jumbotron>
         </div>

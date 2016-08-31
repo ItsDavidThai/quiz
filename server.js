@@ -18,10 +18,10 @@ app.set('view engine', 'ejs');
 app.get('/', function(req, res){
   res.render('index')
 })
-app.get('/fetchAll', function(req, res){
+app.get('/fetch', function(req, res){
   controller.tasks.get(req, res)
 
-  console.log('this is adding')
+  console.log('this is fetching')
 })
 app.post('/add', function(req, res){
   controller.tasks.post(req, res)
@@ -35,6 +35,7 @@ app.get('/remove', function(req, res){
   res.end()
   console.log('this is removing')
 })
+
 app.use(express.static(__dirname + '/'))
 
 

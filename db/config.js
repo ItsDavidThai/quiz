@@ -3,7 +3,7 @@ var db = new Sequelize('todo', '', '',{
 
   dialect:'sqlite',
   // // SQLite only
-  // storage: 'todo.db'
+  storage: './db/todo.sqlite'
 });
 
 var Tasks = db.define('tasks', {

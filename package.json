@@ -4,15 +4,13 @@
   "description": "hey",
   "main": "index.js",
   "author": "",
-  "private":"false",
-    "scripts": {
-        "start": "babel . --out-dir compiled --presets=es2015,react --ignore=node_modules,compiled --source-maps inline -w",
-
-      "test": "nodemon index.js"
-
+  "private": "false",
+  "scripts": {
+    "start": "babel . --out-dir compiled --presets=es2015,react --ignore=node_modules,compiled --source-maps inline -w",
+    "test": "nodemon index.js"
   },
   "license": "ISC",
-    "devDependencies": {
+  "devDependencies": {
     "babel-cli": "^6.14.0",
     "babel-core": "^6.14.0",
     "babel-loader": "^6.2.5",
@@ -39,6 +37,8 @@
     "react": "^15.3.1",
     "react-bootstrap": "^0.30.3",
     "react-dom": "^15.3.1",
+    "sequelize": "^3.24.1",
+    "sqlite": "^2.2.0",
     "underscore": "^1.8.3"
   }
 }

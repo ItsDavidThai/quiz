@@ -5,7 +5,9 @@ module.exports = {
     get: function (req, res) {
       db.Tasks.findAll()
         .then(function(tasks) {
-          console.log(tasks)
+          console.log('this is the tasks from table', tasks[0].dataValues)
+          res.send(tasks)
+
         })
         .catch(function(err){
           console.log(err)
@@ -20,3 +22,5 @@ module.exports = {
 
   }
 }
+
+// module.exports.tasks.get()
