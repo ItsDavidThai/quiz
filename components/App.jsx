@@ -89,13 +89,19 @@ class Input extends React.Component {
     this.props.addtask(task)
   }
 
+  events(){
+    this.handleSubmit.bind(this)()
+    this.addTaskToDB.bind(this)()
+  }
+
   render(){
     return(
 
         <div>
         <Button bsStyle='primary'
+        onClick={this.events.bind(this)}
+        // onClick={this.handleSubmit.bind(this)}
         // onClick={this.addTaskToDB.bind(this)}
-        onClick={this.handleSubmit.bind(this)}
         > Add</Button>
           <input
             className="form-control"
