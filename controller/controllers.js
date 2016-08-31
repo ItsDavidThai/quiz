@@ -20,6 +20,14 @@ module.exports = {
     }
   // },
 
+  },
+  remove:{
+    post: function (req, res) {
+      console.log(req.body, 'reqbody-----------')
+      db.Tasks.destroy({where:{taskname: req.body.taskname}})
+
+    }
+
   }
 }
 

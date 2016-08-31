@@ -30,7 +30,8 @@ app.post('/add', function(req, res){
   res.end()
   console.log('this is connected')
 })
-app.get('/remove', function(req, res){
+app.post('/remove', function(req, res){
+  controller.remove.post(req, res)
   res.writeHeader(200)
   res.end()
   console.log('this is removing')

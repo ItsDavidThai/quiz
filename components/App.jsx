@@ -120,18 +120,25 @@ class Input extends React.Component {
 
 
 var QuizQuestion = (props) => {
-  var deleteFromDb = function(){
-    $.get( "remove", function( data ) {
-      console.log(data)
+  var deleteFromDb = function(data){
+    $.post("remove",{taskname:data},function( res ) {
+      console.log(res)
     });
   }
 
+  var events = function(){
+    props.delete(props.data)
+    deleteFromDb(props.data)
+  }
   return(
       <div>
-      <Button onClick={function(e){
-                props.delete(props.data)
-                deleteFromDb
-              }}
+      <Button onClick={
+              events.bind(this)
+              // function(e){
+              //   props.delete(props.data)
+              //   deleteFromDb()
+              // }
+            }
       >{props.data}
       </Button>
       </div>
